@@ -34,7 +34,6 @@ app.post("/upload", upload.single("image"), async (req, res) => {
         // Use sharp to process the image (convert it to PNG and remove the background)
         await sharp(filePath)
             .png() // Convert to PNG format
-            .removeAlpha() // Simplified for now; you can use other options for background removal
             .toFile(outputPath);
 
         // Send the processed sticker back as a downloadable file
